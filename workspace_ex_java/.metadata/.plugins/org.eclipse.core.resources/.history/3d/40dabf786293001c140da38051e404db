@@ -1,0 +1,56 @@
+package test_initiation_hashcode;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main_start {
+
+	public static void main(String[] args) throws IOException {
+		System.out.println("Hello world");
+		String[] array = readFile();
+
+		System.out.print("00000000000000000000000000000");
+		System.out.print("11111111111111111111111111111");
+	}
+	
+	
+	static String[] readFile() throws IOException  {
+		System.out.print("deginning");
+		String path = "a_an_example.in.txt";
+		//String filename = "a_an_example.in.txt";
+		System.out.println(path);
+		// list that holds strings of a file
+        List<String> listOfStrings = new ArrayList<String>();
+       
+        // load data from file
+        BufferedReader bf = new BufferedReader(new FileReader(path));
+       
+        // read entire line as string
+        String line = bf.readLine();
+       
+        // checking for end of file
+        while (line != null) {
+            listOfStrings.add(line);
+            line = bf.readLine();
+        }
+       
+        // closing bufferreader object
+        bf.close();
+       
+        // storing the data in arraylist to array
+        String[] array = listOfStrings.toArray(new String[0]);
+       
+        // printing each line of file
+        // which is stored in array
+        for (String str : array) {
+            System.out.println(str);
+            System.out.println("------------------");
+        }
+        
+		return array;
+	}
+
+}
